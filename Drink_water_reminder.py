@@ -1,7 +1,6 @@
-## Drink water reminder
-##  WINDOWS SYSTEM.
 import time
 from plyer import notification
+
 sedule = input("Enter hours for notification (1,2,3,4...) :")
 
 hours = int(sedule)*3600
