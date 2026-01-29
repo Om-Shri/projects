@@ -13,8 +13,8 @@ def mistake(peretest,usertest):
 
 def speed_time(time_s,time_e,userinput):
     time_taken = round(time_e - time_s,2)
-    words_len = len(userinput)
-    speed = round(words_len/time_taken)
+    letters_len = len(userinput)
+    speed = round(letters_len/time_taken)
     return speed
 
 
@@ -29,5 +29,5 @@ time1 = time()
 typed = input("**STARTED** \n")
 time2 = time()
 
-print(f"speed : {speed_time(time1,time2,typed)}w/sec")
+print(f"speed : {speed_time(time1,time2,typed)}letter/sec")
 print(f"Mistakes : {mistake(paragraph,typed)}")
