@@ -14,7 +14,6 @@ win_height = 400
 
 window = pg.display.set_mode((win_width,win_height))
 pg.display.set_caption("SNAKE GAME")
-time.sleep(2)
  
 snake = 10
 snake_speed = 15
@@ -35,7 +34,7 @@ def game_snake(snake,snake_length_list):
 
 def message(msg):
     msg = font_style.render(msg,True,red)
-    window.blit(msg,[win_width/15, win_height/3])
+    window.blit(msg,[win_width/10, win_height/3])
 
 def game_loop():
     gameOver = False
@@ -57,7 +56,7 @@ def game_loop():
 
         while gameClose == True:
             window.fill(gray)
-            message("You lost press 'p' for play and 'Q' for quit.")
+            message("You lost press 'P' for play and 'Q' for quit.")
             user_score(snake_length -1)
             pg.display.update()
 
@@ -71,18 +70,20 @@ def game_loop():
 
         for event in pg.event.get():
             if event.type == pg.KEYDOWN:
-                if event.key == pg.K_LEFT:
+                if event.key == pg.K_LEFT or event.key == pg.K_a:
                     x1_change = -snake
                     y1_change = 0
-                if event.key == pg.K_RIGHT:
+                if event.key == pg.K_RIGHT or event.key == pg.K_d:
                     x1_change = snake
                     y1_change = 0
-                if event.key == pg.K_UP:
+                if event.key == pg.K_UP or event.key == pg.K_w:
                     x1_change = 0
                     y1_change = -snake
-                if event.key == pg.K_DOWN:
+                if event.key == pg.K_DOWN or event.key == pg.K_s:
                     x1_change = 0
                     y1_change = snake
+                if event.key == pg.K_k:
+                    gameClose = True
 
         if x1 > win_width or x1<0 or y1 > win_height or y1<0:
             gameClose = True
